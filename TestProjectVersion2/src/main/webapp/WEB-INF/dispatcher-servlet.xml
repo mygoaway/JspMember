@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<!-- @Autowired 사용을 위해 -->
+<context:annotation-config/> 
+ 
+ <!-- 0. dao 접속하기  -->
+ <bean class="jay.SqlMapCafeDao"/>
+ 
+<!--1.카페 상새내용보기  -->
+<bean class="jay.ListActionController"/>
+ 
+<!--2.회원가입 하기  -->
+<bean class="jay.RegisterActionController"/>
+
+<!--3.스터디 카페 예약 하기  -->
+<bean class="jay.ReservationActionController"/>
+
+<!--4.스터디 카페 전체 출려가기  -->
+<bean class="jay.LookCafeActionController"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- viewResolver(위치(prefix),이동할 페이지의 확장자(suffix)  
+       중간에 한글 입력 처리하는거 추가함!!!
+-->
+<bean id="viewResolver"
+      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     <property name="viewClass" 
+                   value="org.springframework.web.servlet.view.JstlView" />
+     <property name="prefix" value="/" />
+     <property name="suffix" value=".jsp"></property>
+     <property name="contentType" value="text/html; charset=UTF-8" />
+</bean>
+
+ 
+</beans>
+
+
+
+
+
+
+
+
+
